@@ -81,38 +81,204 @@ class HomeController extends Controller
 
 
 
-}
+    }
 
 // //=================hero method end==================
     // ====================================================
 
     // //=================about method start==================
  // ====================================================
-function aboutPage(){
-    return view('backend.pages.home.about');
+    function aboutPage(){
+        return view('backend.pages.home.about');
+    }
+
+    public function aboutdatashow(Request $request){
+        // $aboutdata = About::first();
+
+        $aboutdata=  DB::table('abouts')->first();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Request Successful',
+            'data' => $aboutdata,
+        ], 200);
+    }
+
+
+
+    // public function updateAbout(Request $request) {
+
+    //     $aboutdataupdate =  About::first()->update([
+    //         'title'=> $request->input('title'),
+    //         'details'=> $request->input('details'),
+    //     ]);
+    //     return response()->json([
+    //         'status' => 'ok',
+    //         'message' =>'Request Successful',
+    //         'data' => $aboutdataupdate,
+    //     ],200);
+
+
+
+
+    // }
+
+
+
+
+  // //=================about method end==================
+ // ====================================================
+
+   // //=================social method start==================
+ // ====================================================
+
+
+
+    public function updateAbout(Request $request) {
+        try {
+
+            $title = $request->input('title');
+            $details = $request->input('details');
+
+
+            $about = About::first();
+
+            if ($about) {
+
+                $about->title = $title;
+                $about->details = $details;
+                $about->save();
+
+                return response()->json([
+                    'status' => 'ok',
+                    'message' => 'About data updated successfully',
+                    'data' => $about,
+                ], 200);
+            } else {
+
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'About data not found',
+                ], 404);
+            }
+        } catch (\Exception $e) {
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while updating About data',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+
+
+
+
+
+
+
+
+ function socialLink(){
+    return view('backend.pages.home.social');
  }
 
- function aboutdatashow(Request $request){
-    $aboutdata=  DB::table('abouts')->first();
+
+
+ function sociallinkData(Request $request){
+    $socialdata=  DB::table('social_links')->first();
 
     return response()->json([
         'status' => 'success',
-        'message' =>'Request Successful',
-        'data' => $aboutdata,
-    ],200);
+        'message' => 'Request successful',
+        'data' => $socialdata,
+    ], 200);
 }
 
 
+// function updateSocialLink(Request $request,$id){
+//    try{
+//         $twitterLink = $request->input('twitterLink');
+//         $linkedinLink = $request->input('linkedinLink');
+//         $githubrLink = $request->input('githubrLink');
 
-public function updateAbout(Request $request) {
-     return About::first()->update([
-        'title'=> $request->input('title'),
-        'details'=> $request->input('details'),
-    ]);
+//          $social_links = DB::table('social_links')->first();
+
+//          if($social_links){
+//             $social_links->twitterLink = $twitterLink;
+//             $social_links->linkedinLink =$linkedinLink;
+//             $githubrLink->githubrLink =$githubrLink;
+//             $social_links->save();
 
 
+//             return response()->json([
+//                 'status' => 'ok',
+//                 'message' => 'social_links data updated successfully',
+//                 'data' => $social_links,
+//             ], 200);
+//          }else {
 
-}
-  // //=================about method end==================
+//             return response()->json([
+//                 'status' => 'error',
+//                 'message' => 'social_links data not found',
+//             ], 404);
+//         }
+//    }catch (\Exception $e){
+//         return response()->json([
+//             'status' => 'error',
+//             'message' => 'An error occurred while updating About data',
+//             'error' => $e->getMessage(),
+//         ], 500);
+//    }
+// }
+
+   // //=================social method end==================
  // ====================================================
+
+
+
+
+ public function updateSocialLink(Request $request)
+ {
+     try {
+         $twitterLink = $request->input('twitterLink');
+         $linkedinLink = $request->input('linkedinLink');
+         $githubrLink = $request->input('githubrLink');
+
+         $social_links = DB::table('social_links')->first();
+
+         if ($social_links) {
+             DB::table('social_links')->update([
+                 'twitterLink' => $twitterLink,
+                 'linkedinLink' => $linkedinLink,
+                 'githubrLink' => $githubrLink,
+             ]);
+
+             return response()->json([
+                 'status' => 'ok',
+                 'message' => 'Social links data updated successfully',
+                 'data' => $social_links,
+             ], 200);
+         } else {
+             return response()->json([
+                 'status' => 'error',
+                 'message' => 'Social links data not found',
+             ], 404);
+         }
+     } catch (\Exception $e) {
+         return response()->json([
+             'status' => 'error',
+             'message' => 'An error occurred while updating social links data',
+             'error' => $e->getMessage(),
+         ], 500);
+     }
+ }
+
+
+
+
+
+
+
+
 }

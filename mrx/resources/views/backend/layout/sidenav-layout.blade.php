@@ -91,7 +91,7 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ route('hero.page') }}">Hero</a></li>
                 <li><a class="dropdown-item" href="{{ route('about.page') }}">About Me</a></li>
-                <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                <li><a class="dropdown-item" href="{{ route('social.link') }}">Social Link</a></li>
             </ul>
         </div>
 

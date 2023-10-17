@@ -87,6 +87,12 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
             Route::get('/about-data', 'aboutdatashow');
             Route::post('/update-about', 'updateAbout');
 
+        //social link area routes
+            Route::get('/social-linls', 'socialLink')->name('social.link');
+            Route::get('/social-link-data', 'sociallinkData');
+            Route::post('/update-sociallink', 'updateSocialLink');
+           
+
 
     });
 });

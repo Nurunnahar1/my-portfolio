@@ -16,6 +16,9 @@
         <meta name="author" content="" />
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
         <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css') }}" rel="stylesheet" />
+
+         
+
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
         <script src="{{ asset('js/axios.min.js') }}"></script>

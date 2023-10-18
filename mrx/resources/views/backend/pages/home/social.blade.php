@@ -36,7 +36,7 @@
     </div>
 
     <script>
- FillSocialData();
+        FillSocialData();
         async function FillSocialData() {
             try {
                 showLoader();
@@ -57,73 +57,37 @@
 
 
 
+        async function update() {
 
+            let update_twitterLink = document.getElementById('twitterLink').value;
+            let update_linkedinLink = document.getElementById('linkedinLink').value;
+            let update_githubrLink = document.getElementById('githubrLink').value;
 
+            if (!update_twitterLink || !update_linkedinLink || !update_githubrLink) {
+                errorToast("Please provide all social links to update");
+                return;
+            }
 
-        // async function Update() {
+            try {
+                showLoader();
+                let response = await axios.post("/update-sociallink", {
+                    twitterLink: update_twitterLink,
+                    linkedinLink: update_linkedinLink,
+                    githubrLink: update_githubrLink,
+                });
 
+                hideLoader();
 
-        //     let update_twitterLink = document.getElementById('twitterLink').value;
-        //     let update_linkedinLink = document.getElementById('linkedinLink').value;
-        //     let update_githubrLink = document.getElementById('githubrLink').value;
-
-        //     if (!update_twitterLink || !update_linkedinLink || !update_githubrLink) {
-        //             errorToast( "Please select a link to update");
-        //             return;
-        //         }
-
-
-        //         try {
-        //             showLoader();
-        //             const response = await axios.post("/update-sociallink", {
-        //                 twitterLink: update_twitterLink,
-        //                 linkedinLink: update_linkedinLink,
-        //                 githubrLink: update_githubrLink,
-        //             });
-        //             hideLoader();
-
-        //             if (response.status === 200 && response.data.status === 'ok') {
-        //                 successToast('social url updated successfully');
-        //                 document.getElementById("save-form").reset();
-        //                 FillSocialData();
-        //             } else {
-        //                 errorToast("Request failed!");
-        //             }
-        //         } catch (error) {
-        //             console.error('Error updating about data:', error);
-        //             errorToast("Request failed!");
-        //         }
-        // }
-
-        async function Update() {
-    let update_twitterLink = document.getElementById('twitterLink').value;
-    let update_linkedinLink = document.getElementById('linkedinLink').value;
-    let update_githubrLink = document.getElementById('githubrLink').value;
-
-    if (!update_twitterLink || !update_linkedinLink || !update_githubrLink) {
-        errorToast("Please provide all social links to update");
-        return;
-    }
-
-    try {
-        showLoader();
-        const response = await axios.post("/update-sociallink", {
-            twitterLink: update_twitterLink,
-            linkedinLink: update_linkedinLink,
-            githubrLink: update_githubrLink,
-        });
-        hideLoader();
-
-        if (response.status === 200 && response.data.status === 'ok') {
-            successToast('Social links updated successfully');
-            // You can reset the form or perform any other actions here
-        } else {
-            errorToast("Request failed!");
+                if (response.data === 1) {
+                    successToast('Social links updated successfully');
+                    // You can reset the form or perform any other actions here
+                } else {
+                    errorToast("Request failed!");
+                }
+            } catch (error) {
+                console.error('Error updating social links:', error);
+                errorToast("Request failed!");
+            }
         }
-    } catch (error) {
-        console.error('Error updating social links:', error);
-        errorToast("Request failed!");
-    }
-}
     </script>
 @endsection

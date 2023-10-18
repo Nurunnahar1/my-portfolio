@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\HomeController as BackendHomeController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\Backend\ResumeController as BackendResumeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 
@@ -75,7 +76,7 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
     Route::get('/dashboard',[DashboardController::class,'DashboardPage']);
 
 
-    //HomeController
+    //Baxkend HomeController
     Route::controller(BackendHomeController::class)->group(function () {
         //hero area routes
             Route::get('/hero', 'heroPage')->name('hero.page');
@@ -91,7 +92,21 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
             Route::get('/social-linls', 'socialLink')->name('social.link');
             Route::get('/social-link-data', 'sociallinkData');
             Route::post('/update-sociallink', 'updateSocialLink');
-           
+
+
+
+    });
+    //Backend ResumeController
+    Route::controller(BackendResumeController::class)->group(function () {
+        //experience area routes
+            Route::get('/experience', 'experiencePage')->name('experience.page');
+            Route::get('/list-experience', 'experienceList')->name('experience.list');
+            Route::post('/add-experience', 'addExperience')->name('experience.add');
+            Route::post('/experience-data', 'experiencedata')->name('experience.data');
+            Route::post('/update-experience', 'updateExperience')->name('experience.update');
+
+
+
 
 
     });

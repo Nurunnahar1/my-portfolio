@@ -101,9 +101,11 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
         //experience area routes
             Route::get('/experience', 'experiencePage')->name('experience.page');
             Route::get('/list-experience', 'experienceList')->name('experience.list');
-            Route::post('/add-experience', 'addExperience')->name('experience.add');
-            Route::post('/experience-data', 'experiencedata')->name('experience.data');
-            Route::post('/update-experience', 'updateExperience')->name('experience.update');
+            Route::post('/create-experience', 'createExperience');
+            Route::post('/experience-by-id', 'experienceById');
+            Route::post('/update-experience', 'experienceUpdate') ;
+
+            Route::post('/delete-experience', 'experienceDelete') ;
 
 
 

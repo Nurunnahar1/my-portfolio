@@ -104,8 +104,27 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
             Route::post('/create-experience', 'createExperience');
             Route::post('/experience-by-id', 'experienceById');
             Route::post('/update-experience', 'experienceUpdate') ;
-
             Route::post('/delete-experience', 'experienceDelete') ;
+
+
+        //education area routes
+            Route::get('/education', 'educationPage')->name('education.page');
+            Route::get('/list-education', 'educationList')->name('education.list');
+            Route::post('/create-education', 'createEducation');
+
+            Route::post('/education-by-id', 'educationById');
+            Route::post('/update-education', 'educationUpdate') ;
+            Route::post('/delete-education', 'educationDelete') ;
+
+
+        //Skills area routes
+            Route::get('/skill', 'skillPage')->name('skill.page');
+            Route::get('/list-skill', 'skillList')->name('skill.list');
+            Route::post('/create-skill', 'createskill');
+
+            Route::post('/skill-by-id', 'skillById');
+            Route::post('/update-skill', 'skillUpdate') ;
+            Route::post('/delete-skill', 'skillDelete') ;
 
 
 

@@ -50,11 +50,12 @@
         tableList.empty();
 
         res.data.forEach(function(item, index) {
+            let shortSentence = item['details'].split(' ').slice(0, 5).join(' ');
             let row = `<tr>
                     <td>${index+1}</td>
                     <td>${item['duration']}</td>
                     <td>${item['title']}</td>
-                    <td>${item['details']}</td>
+                    <td>${shortSentence}</td>   
                     <td>${item['designation']}</td>
 
                     <td>

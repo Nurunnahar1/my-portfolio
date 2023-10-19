@@ -99,8 +99,8 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Resume</button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ route('experience.page') }}">Experience</a></li>
-                <li><a class="dropdown-item" href="#">Education</a></li>
-                <li><a class="dropdown-item" href="#">Professional Skills </a></li>
+                <li><a class="dropdown-item" href="{{ route('education.page') }}">Education</a></li>
+                <li><a class="dropdown-item" href="{{ route('skill.page') }}">Professional Skills </a></li>
                 <li><a class="dropdown-item" href="#">Languages</a></li>
             </ul>
         </div>

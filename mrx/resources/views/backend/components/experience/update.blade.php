@@ -21,7 +21,7 @@
 
                                 <label class="form-label">Details</label>
                                 <textarea class="form-control" name="" id="update_details" cols="30" rows="10"></textarea>
-                                <input type="text" class=" " id="updateID">
+                                <input type="text" class="hidden " id="updateID">
                             </div>
                         </div>
                     </div>

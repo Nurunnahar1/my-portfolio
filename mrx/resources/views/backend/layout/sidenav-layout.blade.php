@@ -101,7 +101,7 @@
                 <li><a class="dropdown-item" href="{{ route('experience.page') }}">Experience</a></li>
                 <li><a class="dropdown-item" href="{{ route('education.page') }}">Education</a></li>
                 <li><a class="dropdown-item" href="{{ route('skill.page') }}">Professional Skills </a></li>
-                <li><a class="dropdown-item" href="#">Languages</a></li>
+                <li><a class="dropdown-item" href=" {{ route('language.page') }}">Languages</a></li>
             </ul>
         </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Language;
 use App\Models\Education;
 use App\Models\Experience;
 use Illuminate\Http\Request;
@@ -165,4 +166,53 @@ function skillDelete(Request $request){
 }
 
  //Education methods end here
+
+
+ //Language methods start here
+ function languagePage(){
+
+    return view('backend.pages.resume.language');
+
+}
+
+function languageList(Request $request){
+
+    return Language::latest()->get();
+}
+
+function createlanguage(Request $request){
+
+
+    Language::create([
+       'name'=>$request->input('name'),
+
+
+   ]);
+
+   return response()->json([
+       "status"=> "ok"
+   ]);
+}
+
+
+function languageById(Request $request){
+    $skill_id=$request->input('id');
+
+    return Language::where('id',$skill_id)->first();
+}
+
+function languageUpdate(Request $request){
+    $skill_id=$request->input('id');
+    return Language::where('id',$skill_id)->update([
+        'name'=>$request->input('update_name'),
+
+    ]);
+}
+function languageDelete(Request $request){
+    $skill_id=$request->input('id');
+    return Language::where('id',$skill_id)->delete();
+}
+
+
+ //Language methods end here
 }

@@ -121,10 +121,18 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
             Route::get('/skill', 'skillPage')->name('skill.page');
             Route::get('/list-skill', 'skillList')->name('skill.list');
             Route::post('/create-skill', 'createskill');
-
             Route::post('/skill-by-id', 'skillById');
             Route::post('/update-skill', 'skillUpdate') ;
             Route::post('/delete-skill', 'skillDelete') ;
+
+
+        //language area routes
+            Route::get('/language', 'languagePage')->name('language.page');
+            Route::get('/list-language', 'languageList')->name('language.list');
+            Route::post('/create-language', 'createlanguage');
+            Route::post('/language-by-id', 'languageById');
+            Route::post('/update-language', 'languageUpdate') ;
+            Route::post('/delete-language', 'languageDelete') ;
 
 
 

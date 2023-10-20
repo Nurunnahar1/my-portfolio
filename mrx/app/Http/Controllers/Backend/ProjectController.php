@@ -16,8 +16,6 @@ class ProjectController extends Controller
 
         return Project::latest()->get();
     }
-
- 
     public function createproject(Request $request)
     {
         // Get files from the request using the field names from   form
@@ -49,4 +47,16 @@ class ProjectController extends Controller
             'message' => 'Created successfully'
         ], 201);
     }
+    function projectById(Request $request){
+        $project_id=$request->input('id');
+
+        return Project::where('id',$project_id)->first();
+    }
+    function projectDelete(Request $request){
+        $project_id=$request->input('id');
+        return Project::where('id',$project_id)->delete();
+    }
+
+
+    
 }

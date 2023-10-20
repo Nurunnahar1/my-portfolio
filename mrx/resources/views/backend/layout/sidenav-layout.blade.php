@@ -103,29 +103,16 @@
                 <li><a class="dropdown-item" href="{{ route('skill.page') }}">Professional Skills </a></li>
                 <li><a class="dropdown-item" href=" {{ route('language.page') }}">Languages</a></li>
             </ul>
+        </div><br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Projects</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href=" {{ route('project.page') }}">Projects</a></li>
+
+            </ul>
         </div>
 
 
-        <a href="{{ url('/categoryPage') }}" class="side-bar-item">
-            <i class="fa fa-chevron-circle-right  text-dark"></i>
-            <span class="side-bar-item-caption">Category</span>
-        </a>
-
-        <a href="{{ url('/productPage') }}" class="side-bar-item">
-            <i class="fa fa-chevron-circle-right  text-dark"></i>
-            <span class="side-bar-item-caption">Product</span>
-        </a>
-
-
-        <a href="#Getting-Started" class="side-bar-item">
-            <i class="fa fa-chevron-circle-right  text-dark"></i>
-            <span class="side-bar-item-caption">Invoice</span>
-        </a>
-
-        <a href="#Getting-Started" class="side-bar-item">
-            <i class="fa fa-chevron-circle-right  text-dark"></i>
-            <span class="side-bar-item-caption">Report</span>
-        </a>
 
 
     </div>

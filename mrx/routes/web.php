@@ -7,6 +7,7 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Backend\ResumeController as BackendResumeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Backend\ProjectController as BackendProjectController;
 
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Middleware\TokenVerificationMiddleware;
@@ -138,6 +139,16 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
 
 
 
+    });
+
+    Route::controller(BackendProjectController::class)->group(function () {
+         //project area routes
+         Route::get('/project', 'projectPage')->name('project.page');
+         Route::get('/list-project', 'projectList');
+         Route::post('/create-project', 'createproject');
+         Route::post('/project-by-id', 'projectById');
+         Route::post('/update-project', 'projectUpdate') ;
+         Route::post('/delete-project', 'projectDelete') ;
     });
 });
 

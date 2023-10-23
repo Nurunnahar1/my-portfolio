@@ -147,7 +147,7 @@ Route::group(['middleware' => [TokenVerificationMiddleware::class]], function ()
          Route::get('/list-project', 'projectList');
          Route::post('/create-project', 'createproject');
          Route::post('/project-by-id', 'projectById');
-         Route::post('/update-project', 'projectUpdate') ;
+         Route::post('/update-project', 'updateProject') ;
          Route::post('/delete-project', 'projectDelete') ;
     });
 });

@@ -6,3 +6,4 @@
     @include('backend.components.project.update')
     @include('backend.components.project.delete')
 @endsection
+ 
